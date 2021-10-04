@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="nav navbar-nav">
+                  <a class="nav-link" href="{% url 'formtest:index' %}" >Welcome </a>
+                  <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+                  <a class="nav-link" href="{% url 'formtest:Registration' %}">Register</a>
+                  {% if user.is_authenticated %}    
+                  <a class="nav-link" href="{% url 'formtest:log_out' %}">Loaout</a>
+                  {% else %}
+                  <a class="nav-link" href="{% url 'formtest:log_in' %}">Login</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </nav>
+        <div class='container'>
+            {% block body_block %}
+            {% endblock %}
+        </div>
+        <!-- page content -->
+    </body>
+</html>

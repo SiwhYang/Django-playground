@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "formtest/BasicFramework.html" %}
+{% load static %}
+{% block body_block %}
+
+{% if registered %}
+    <h1> Thank you for registration</h1>
+{% else %}
+
+<h1> Register here ! </h1>
+<h3> Fill the forms : </h3>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ User_Form.as_p }}
+        {{ UserProfile_Info_form.as_p }}
+        <input type="submit" value="Register">
+    </form> 
+
+{% endif %}
+{% endblock %}
