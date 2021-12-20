@@ -65,7 +65,7 @@ def user_log_in(request):
         else:
             print("login fail")
             print("username : {} and password : {} ".format(username,password) )
-            return HttpResponse("login fail !!!")
+            return HttpResponse("No username or password matched !!!")
     else:
         return render(request,'formtest/login.html')
 
